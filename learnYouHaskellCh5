@@ -1,0 +1,7 @@
+findMostest :: (first -> second -> isFirstGreater) -> things -> mostestThing
+findMostest comparer [] = error "Can't find mostest of empty list"
+findMostest comparer [thing] = thing
+findMostest comparer (currentThing:otherThings)
+    | (comparer thing mostestSoFar) = thing
+    | otherwise = mostestSoFar
+    where mostestSoFar = findMostest otherThings
