@@ -14,3 +14,14 @@ replicate' el numCopies
     | numCopies == 0 = []
     | otherwise = el:copiesListSoFar
     where copiesListSoFar = replicate' el (numCopies - 1) 
+
+reverse' :: [a] -> [a]
+reverse' [] = []
+reverse' (x:xs) = reverse' xs ++ [x] 
+
+quicksort :: (Ord a) => [a] -> [a]
+quicksort [] = []
+quicksort (x:xs) =
+    let smallerSorted = quicksort [a | a <- xs, a <= x]
+        largerSorted = quicksort [a | a <- xs, a > x]
+    in smallerSorted ++ [x] ++ largerSorted
