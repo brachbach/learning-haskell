@@ -1,0 +1,1 @@
+My very first feeble attempts to learn Haskell
